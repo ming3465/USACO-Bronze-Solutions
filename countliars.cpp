@@ -7,25 +7,23 @@ using namespace std;
 void solve() {
     ifstream cin("gymnasium.in");
     ofstream cout("gymnasium.out");
-    int k, n; // `k` is session_num, `n` is cow_num
+    int k, n; 
     cin >> k >> n;
-    vector<vector<bool>> better(n, vector<bool>(n)); // `better` matrix
+    vector<vector<bool>> better(n, vector<bool>(n)); 
 
-    // Read sessions and populate the `better` matrix
+    
     for (int s = 0; s < k; s++) {
-        vector<int> cows(n); // `cows` corresponds to `session`
+        vector<int> cows(n); 
         for (int &c : cows) {
             cin >> c;
-            c--; // Make 0-based
+            c--; 
         }
         for (int i = 0; i < n; i++) {
             for (int j = i + 1; j < n; j++) {
-                better[cows[j]][cows[i]] = true; // Mark that cows[j] is better than cows[i]
+                better[cows[j]][cows[i]] = true; 
             }
         }
     }
-
-    // Count pairs where one cow is not consistently better than the other
     int better_pairs = 0;
     for (int c1 = 0; c1 < n; c1++) {
         for (int c2 = c1 + 1; c2 < n; c2++) {
@@ -33,7 +31,7 @@ void solve() {
         }
     }
 
-    cout << better_pairs; // Output the total count
+    cout << better_pairs; 
 }
 
 int main() {
