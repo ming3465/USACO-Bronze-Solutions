@@ -19,7 +19,7 @@ int main() {
 	int x, y;
 	cin >> x >> y;
 
-	vi zigzag;
+	vi move;
 
 	if (x == y) {
 		cout << 0 << endl;
@@ -27,31 +27,31 @@ int main() {
 		int dist = 1;
 
 		while (x + dist < y) {
-			zigzag.pb(x + dist);
+			move.pb(x + dist);
 			dist *= -2;
 		}
 
-		zigzag.pb(x + dist);
+		move.pb(x + dist);
 
 		int ans = 1;
 
-		For(i, 0, zigzag.size() - 1) { ans += abs(zigzag[i] - zigzag[i + 1]); }
-		ans -= (zigzag[zigzag.size() - 1] - y);
+		For(i, 0, move.size() - 1) { ans += abs(move[i] - move[i + 1]); }
+		ans -= (move[move.size() - 1] - y);
 		cout << ans << endl;
 	} else {
 		int dist = 1;
 
 		while (x + dist > y) {
-			zigzag.pb(x + dist);
+			move.pb(x + dist);
 			dist *= -2;
 		}
 
-		zigzag.pb(x + dist);
+		move.pb(x + dist);
 
 		int ans = 1;
 
-		For(i, 0, zigzag.size() - 1) { ans += abs(zigzag[i] - zigzag[i + 1]); }
-		ans -= (y - zigzag[zigzag.size() - 1]);
+		For(i, 0, move.size() - 1) { ans += abs(move[i] - move[i + 1]); }
+		ans -= (y - move[move.size() - 1]);
 		cout << ans << endl;
 	}
 }
