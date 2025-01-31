@@ -23,7 +23,7 @@ int main() {
 
 	if (x == y) {
 		cout << 0 << endl;
-	} else if (x < y) {
+	} if (x < y) {
 		int dist = 1;
 
 		while (x + dist < y) {
